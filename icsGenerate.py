@@ -1,4 +1,4 @@
-from  datetime import datetime
+from datetime import datetime
 from icalendar import Calendar, Event
 
 cal = Calendar()

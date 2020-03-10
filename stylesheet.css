@@ -1,0 +1,9 @@
+body {
+    background-color: deepskyblue;
+    color: white;
+}
+
+.btn {
+    background-color: rgb(186, 71, 221);
+    font-weight: 100;
+}
