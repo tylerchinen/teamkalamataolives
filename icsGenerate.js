@@ -9,12 +9,12 @@ function makeICS(){
   var x;
 }
 
-function(addWeek cal_date){
+function addWeek(cal_date){
   cal_date.setDate(cal_date.getDate( + 7));
   var day_set = cal_date;
   var less_day;
   var add_day = cal_date = cal_date = getDate();
-  val mmonth = cal_date.getMonth();
+  var mmonth = cal_date.getMonth();
   var yyear = cal_date.getFullYear();
 
   if ( mmonth === 4 || mmonth === 6 || mmonth === 9 || mmonth === 11){
@@ -22,13 +22,12 @@ function(addWeek cal_date){
     day_set.setDate(add_day);
     less_day = add_day - 1;
   }
-  else if (mmonth === 2 & (yyear%4 ==== 0)){
+  else if (mmonth === 2 & (yyear%4 === 0)){
     add_day = add_day + 3;
     day_set.setDate(add_day);
     less_day = add_day - 3;
   }
-  else if {
-    (mmonth === 2 && (yyear%4 != 0))
+  else if (mmonth === 2 && (yyear%4 != 0)) {
     add_day = add_day + 4;
     day_set.setDate(add_day);
     less_day = add_day - 4;
@@ -38,7 +37,7 @@ function(addWeek cal_date){
   };
   if (less_day > 30){
     cal_date.setMonth(cal_date.getMonth()- 1)
-  }:
+  }
   cal_date.setDate(day_set.getDate());
   cal_date.setDate(less_day);
 }
