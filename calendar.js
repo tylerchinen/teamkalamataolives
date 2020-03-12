@@ -3,18 +3,29 @@ function makeICS() {
     let name = document.getElementById("name").value;
     let startTime = document.getElementById("startTime").value;
     let endTime = document.getElementById("endTime").value;
-    let startDate =document.getElementById("startDate").value;
+    let startDate = document.getElementById("startDate").value;
     let endDate = document.getElementById("endDate").value;
     let location = document.getElementById("location").value;
+    let filename = name;
 
     startDate = startDate.split('-');
     endDate = endDate.split('-');
     startTime = startTime.split(":")
     endTime = endTime.split(":")
     
-    var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" + (startDate[2] + startDate[0] + startDate[1]) + "T" + startTime[0] + startTime[1] + "00" + "Z" +  "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + (startDate[2] + startDate[0] + startDate[1]) + "T" + startTime[0] + startTime[1] + "00" + "Z" + "\nDTEND:" + (endDate[2] + endDate[0] + endDate[1]) + "T" + endTime[0] + endTime[1] + "00" + "Z" + "\nLOCATION:" + location + "\nSUMMARY:" + name + "\nEND:VEVENT\nEND:VCALENDAR";
+    var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" + (startDate[2] + startDate[0] + startDate[1]) + "T" + startTime[0] + startTime[1] + "00" + "Z" +  "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + (startDate[0] + startDate[1] + startDate[2]) + "T" + startTime[0] + startTime[1] + "00" + "Z" + "\nDTEND:" + (endDate[0] + endDate[1] + endDate[2]) + "T" + endTime[0] + endTime[1] + "00" + "Z" + "\nLOCATION:" + location + "\nSUMMARY:" + name + "\nEND:VEVENT\nEND:VCALENDAR";
+   var element = document.createElement('a');
     console.log(icsMSG);
-    window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
+    
+    element.setAttribute('href', "data:text/calendar;charset=utf8," + escape(icsMSG))
+    element.setAttribute('download', filename + ".ics");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+    window.open( );
      
 }
 
