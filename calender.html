@@ -70,7 +70,8 @@
         placeholder="Enter event location">
     </div>
     <div style="margin-left: 15px;" >
-       <button type="button" id="add" value"Add" onclick="addRow()" onclick="makeICS()" class="btn btn-primary" >Add</button>
+       <button type="button" id="add" value"Add" onclick="if(checkTime()){addRow()} 
+       else {alert('Not valid: Time either passed or does not exist')};"  class="btn btn-primary" >Add</button>
     <button type="button" id="Download" onclick="if(checkTime()){makeICS();} 
     else {alert('Not valid: Time either passed or does not exist')}" class="btn btn-primary">Download</button>
     </div>
