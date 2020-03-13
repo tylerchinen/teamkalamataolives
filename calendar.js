@@ -84,3 +84,21 @@ function addTable() {
      myTableDiv.appendChild(table);
      
  }
+
+ function checkTime() {
+    var startTime = document.getElementById("startTime").value;
+    var endTime = document.getElementById("endTime").value;
+    var startDate = document.getElementById("startDate").value;
+    var endDate = document.getElementById("endDate").value;
+    startDate = startDate.split('-');
+    endDate = endDate.split('-');
+    startTime = startTime.split(":")
+    endTime = endTime.split(":")
+    var now = new Date();
+    var userTime = new Date(startDate[0], startDate[1], startDate[2], startTime[0], startTime[1]);
+    if (now > userTime) {
+      return false;
+    } else {
+      return true;
+    }
+   }
