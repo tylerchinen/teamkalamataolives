@@ -96,7 +96,8 @@ function addTable() {
     endTime = endTime.split(":")
     var now = new Date();
     var userTime = new Date(startDate[0], startDate[1], startDate[2], startTime[0], startTime[1]);
-    if (now > userTime) {
+    console.log(userTime)
+    if (now > userTime || userTime == "Invalid Date") {
       return false;
     } else {
       return true;
