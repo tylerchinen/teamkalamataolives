@@ -1,6 +1,7 @@
 body {
     font-family: Verdana;
 
+    padding-bottom: 50%;
     background: linear-gradient(180deg, #cfe8ef 0%, #73e3e5 13%, rgba(0,212,255,1) 100%);
     color: white;
 }
