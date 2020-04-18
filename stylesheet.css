@@ -1,6 +1,7 @@
 body {
     font-family: Verdana;
 
+    padding-bottom: 50%;
     background: linear-gradient(180deg, #cfe8ef 0%, #73e3e5 13%, rgba(0,212,255,1) 100%);
     color: white;
 }
@@ -30,4 +31,26 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .form-row {
     margin-left: 10px;
+}
+
+.time-period input{
+    position: absolute;
+    vertical-align: top; 
+    display: inline-block; 
+    zoom: 1; 
+    width: 44px; 
+    height: 9px; 
+    font-size: 0px; 
+    border-left: 1px solid black; 
+    background: white;
+
+}
+
+
+.time-period:checked {
+    background: #6369d1;
+}
+
+.toggle-button {
+    margin-bottom: 40px;
 }
