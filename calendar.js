@@ -10,6 +10,7 @@ function makeICS() {
     let geoPosLONG = document.getElementById("geoPosLONG").value;
     var sentBy = document.getElementById("sentBy").value;
     let classification = document.getElementById("classification").value;
+    let priority = document.getElementById("priority").value;
 
     let filename = name;
 
@@ -41,6 +42,9 @@ function makeICS() {
 
         "\nCLASS:" +
         classification +
+
+        "\nPRIORITY:" +
+        priority +
 
         "" + "\nLOCATION:" +
         location +
