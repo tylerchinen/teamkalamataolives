@@ -7,6 +7,10 @@ function makeICS() {
     let location = document.getElementById("location").value;
     var description = document.getElementById("description").value;
     let filename = name;
+    let geoPosLAT = document.getElementById("geoPosLAT").value;
+    let geoPosLONG = document.getElementById("geoPosLONG").value;
+
+    let filename = name;
 
     startDate = startDate.split("-");
     endDate = endDate.split("-");
@@ -36,6 +40,12 @@ function makeICS() {
 
         "" + "\nLOCATION:" +
         location +
+
+        "\nGEO:" +
+        geoPosLAT +
+        ";" +
+        geoPosLONG +
+
         "\nSUMMARY:" +
         name +
         "\nDESCRIPTION:" +
