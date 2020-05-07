@@ -5,6 +5,7 @@ function makeICS() {
     let startDate = document.getElementById("startDate").value;
     let endDate = document.getElementById("endDate").value;
     let location = document.getElementById("location").value;
+    var description = document.getElementById("description").value;
     let filename = name;
 
     startDate = startDate.split("-");
@@ -37,6 +38,9 @@ function makeICS() {
         location +
         "\nSUMMARY:" +
         name +
+        "\nDESCRIPTION:" +
+        description +
+
         "\nEND:VEVENT\nEND:VCALENDAR";
     var element = document.createElement("a");
     console.log(icsMSG);
@@ -52,6 +56,7 @@ function makeICS() {
     element.click();
 
     document.body.removeChild(element);
+
     window.open();
 }
 
