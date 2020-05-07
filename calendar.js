@@ -127,15 +127,17 @@ function checkTime() {
     );
 
     var final = new Date(
-        endTime[0],
-        endTime[1],
-        endTime[2],
+        endDate[0],
+        endDate[1],
+        endDate[2],
         endTime[0],
         endTime[1]
     );
 
+
     console.log(userTime);
-    if (now > userTime || userTime == "Invalid Date" || final == "Invalid Date" || final > startTime) {
+    console.log(final);
+    if (now > userTime || userTime == "Invalid Date" || final == "Invalid Date" || final < userTime) {
         return false;
     } else {
         return true;
