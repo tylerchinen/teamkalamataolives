@@ -8,6 +8,7 @@ function makeICS() {
     var description = document.getElementById("description").value;
     let geoPosLAT = document.getElementById("geoPosLAT").value;
     let geoPosLONG = document.getElementById("geoPosLONG").value;
+    var sentBy = document.getElementById("sentBy").value;
 
     let filename = name;
 
@@ -24,7 +25,7 @@ function makeICS() {
         startTime[1] +
         "00" +
         "" +
-        "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" +
+        "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::" + sentBy + "\nDTSTART:" +
         (startDate[0] + startDate[1] + startDate[2]) +
         "T" +
         startTime[0] +
@@ -83,7 +84,7 @@ function addRow() {
     var row = table.insertRow(rowCount);
 
     row.insertCell(0).innerHTML =
-        '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+        '<input type="button" class="btn-primary btn-red" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML = name;
     row.insertCell(2).innerHTML = startTime;
     row.insertCell(3).innerHTML = endTime;
