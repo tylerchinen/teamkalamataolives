@@ -19,21 +19,18 @@ function makeICS() {
         startTime[0] +
         startTime[1] +
         "00" +
-        "Z" +
         "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" +
         (startDate[0] + startDate[1] + startDate[2]) +
         "T" +
         startTime[0] +
         startTime[1] +
         "00" +
-        "Z" +
         "\nDTEND:" +
         (endDate[0] + endDate[1] + endDate[2]) +
         "T" +
         endTime[0] +
         endTime[1] +
         "00" +
-        "Z" +
         "\nLOCATION:" +
         location +
         "\nSUMMARY:" +
@@ -146,12 +143,12 @@ function checkTime() {
 }
 
 function checkField() {
-  var name = document.getElementById("name").value;
-  if (name == "") {
-    return false;
-  } else {
-    return true;
-  }
+    var name = document.getElementById("name").value;
+    if (name == "") {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function toggleMap() {
@@ -189,4 +186,3 @@ function placeMarker(map, location) {
     });
     infowindow.open(map, marker);
 }
-
