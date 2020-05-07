@@ -6,7 +6,6 @@ function makeICS() {
     let endDate = document.getElementById("endDate").value;
     let location = document.getElementById("location").value;
     var description = document.getElementById("description").value;
-    let filename = name;
     let geoPosLAT = document.getElementById("geoPosLAT").value;
     let geoPosLONG = document.getElementById("geoPosLONG").value;
 
