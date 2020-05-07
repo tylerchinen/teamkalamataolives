@@ -5,7 +5,10 @@ function makeICS() {
     let startDate = document.getElementById("startDate").value;
     let endDate = document.getElementById("endDate").value;
     let location = document.getElementById("location").value;
-    let filename = name;
+    let geoPosLAT = document.getElementById("geoPosLAT").value;
+    let geoPosLONG = document.getElementById("geoPosLONG").value;
+
+  let filename = name;
 
     startDate = startDate.split("-");
     endDate = endDate.split("-");
@@ -35,6 +38,12 @@ function makeICS() {
 
         "" + "\nLOCATION:" +
         location +
+
+        "\nGEO:" +
+        geoPosLAT +
+        ";" +
+        geoPosLONG +
+
         "\nSUMMARY:" +
         name +
         "\nEND:VEVENT\nEND:VCALENDAR";
