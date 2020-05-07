@@ -145,6 +145,15 @@ function checkTime() {
 
 }
 
+function checkField() {
+  var name = document.getElementById("name").value;
+  if (name == "") {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function toggleMap() {
     var x = document.getElementById("map");
     if (x.style.display === "none") {
@@ -180,3 +189,4 @@ function placeMarker(map, location) {
     });
     infowindow.open(map, marker);
 }
+

@@ -69,10 +69,13 @@
             <input name="eventName" type="location" class="form-control" id="location" aria-describedby="eventName" placeholder="Enter event location">
         </div>
         <div style="margin-left: 15px;">
-            <button type="button" id="add" value "Add" onclick="if(checkTime()){addRow()} 
-       else {alert('Not valid: Time either passed or does not exist')};" class="btn btn-primary">Add</button>
-            <button type="button" id="Download" onclick="if(checkTime()){makeICS();} 
-    else {alert('Not valid: Time either passed or does not exist')}" class="btn btn-primary">Download</button>
+           <button type="button" id="add" onclick="if(checkField()){if(checkTime()){addRow();}
+           else {alert('Time invalid: Time has either passed or does not exist')}}
+           else {alert('Field invalid: Please enter an event name')}"  class="btn btn-primary">Add</button>
+
+           <button type="button" id="Download" onclick="if(checkField())if(checkTime()){makeICS();}
+           else {alert('Time invalid: Time has either passed or does not exist')}
+           else {alert('Field invalid: Please enter an event name')}" class="btn btn-primary">Download</button>
         </div>
     </form>
 
