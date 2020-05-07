@@ -21,52 +21,101 @@ function makeICS() {
     startTime = startTime.split(":");
     endTime = endTime.split(":");
 
-    var icsMSG =
-        "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN" +
-        "\nBEGIN:VTIMEZONE" + "\nTZID:" + tZID + "\nEND:VTIMEZONE" +
-        "\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" +
-        (startDate[2] + startDate[0] + startDate[1]) +
-        "T" +
-        startTime[0] +
-        startTime[1] +
-        "00" +
-        "" +
-        "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::" + sentBy + "\nDTSTART:" +
-        (startDate[0] + startDate[1] + startDate[2]) +
-        "T" +
-        startTime[0] +
-        startTime[1] +
-        "00" +
-        "" + "\nDTEND:" +
-        (endDate[0] + endDate[1] + endDate[2]) +
-        "T" +
-        endTime[0] +
-        endTime[1] +
-        "00" +
+    //Work around for RRULE:FREQ=
+    if (rec == "") {
+      var icsMSG =
+          "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN" +
+          "\nBEGIN:VTIMEZONE" + "\nTZID:" + tZID + "\nEND:VTIMEZONE" +
+          "\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" +
+          (startDate[2] + startDate[0] + startDate[1]) +
+          "T" +
+          startTime[0] +
+          startTime[1] +
+          "00" +
+          "" +
+          "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::" + sentBy + "\nDTSTART:" +
+          (startDate[0] + startDate[1] + startDate[2]) +
+          "T" +
+          startTime[0] +
+          startTime[1] +
+          "00" +
+          "" + "\nDTEND:" +
+          (endDate[0] + endDate[1] + endDate[2]) +
+          "T" +
+          endTime[0] +
+          endTime[1] +
+          "00" +
 
-        "\nRRULE:" +
-        rec +
+          "\nCLASS:" +
+          classification +
 
-        "\nCLASS:" +
-        classification +
+          "\nPRIORITY:" +
+          priority +
 
-        "\nPRIORITY:" +
-        priority +
+          "" + "\nLOCATION:" +
+          location +
 
-        "" + "\nLOCATION:" +
-        location +
+          "\nGEO:" +
+          geoPosLAT +
+          ";" +
+          geoPosLONG +
 
-        "\nGEO:" +
-        geoPosLAT +
-        ";" +
-        geoPosLONG +
+          "\nSUMMARY:" +
+          name +
 
-        "\nSUMMARY:" +
-        name +
-        "\nDESCRIPTION:" +
-        description +
+          "\nDESCRIPTION:" +
+          description +
 
-        "\nEND:VEVENT\nEND:VCALENDAR";
+          "\nEND:VEVENT\nEND:VCALENDAR";
+    } else {
+      var icsMSG =
+          "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN" +
+          "\nBEGIN:VTIMEZONE" + "\nTZID:" + tZID + "\nEND:VTIMEZONE" +
+          "\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" +
+          (startDate[2] + startDate[0] + startDate[1]) +
+          "T" +
+          startTime[0] +
+          startTime[1] +
+          "00" +
+          "" +
+          "\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::" + sentBy + "\nDTSTART:" +
+          (startDate[0] + startDate[1] + startDate[2]) +
+          "T" +
+          startTime[0] +
+          startTime[1] +
+          "00" +
+          "" + "\nDTEND:" +
+          (endDate[0] + endDate[1] + endDate[2]) +
+          "T" +
+          endTime[0] +
+          endTime[1] +
+          "00" +
+
+          "\nRRULE:" +
+          rec +
+
+          "\nCLASS:" +
+          classification +
+
+          "\nPRIORITY:" +
+          priority +
+
+          "" + "\nLOCATION:" +
+          location +
+
+          "\nGEO:" +
+          geoPosLAT +
+          ";" +
+          geoPosLONG +
+
+          "\nSUMMARY:" +
+          name +
+
+          "\nDESCRIPTION:" +
+          description +
+
+          "\nEND:VEVENT\nEND:VCALENDAR";
+    }
     var element = document.createElement("a");
     console.log(icsMSG);
 
