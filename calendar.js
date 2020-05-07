@@ -11,6 +11,7 @@ function makeICS() {
     var sentBy = document.getElementById("sentBy").value;
     let classification = document.getElementById("classification").value;
     let priority = document.getElementById("priority").value;
+    let rec = document.getElementById("rec").value;
 
     let filename = name;
 
@@ -39,6 +40,9 @@ function makeICS() {
         endTime[0] +
         endTime[1] +
         "00" +
+
+        "\nRRULE:" +
+        rec +
 
         "\nCLASS:" +
         classification +
