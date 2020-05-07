@@ -12,6 +12,7 @@ function makeICS() {
     let classification = document.getElementById("classification").value;
     let priority = document.getElementById("priority").value;
     let rec = document.getElementById("rec").value;
+    let tZID = document.getElementById("TimeZone").value;
 
     let filename = name;
 
@@ -21,7 +22,9 @@ function makeICS() {
     endTime = endTime.split(":");
 
     var icsMSG =
-        "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" +
+        "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN" +
+        "\nBEGIN:VTIMEZONE" + "\nTZID:" + tZID + "\nEND:VTIMEZONE" +
+        "\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:" +
         (startDate[2] + startDate[0] + startDate[1]) +
         "T" +
         startTime[0] +
